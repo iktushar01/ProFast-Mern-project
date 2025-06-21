@@ -58,7 +58,7 @@ const OurServices = () => {
                 {services.map((service, index) => (
                     <div 
                         key={index}
-                        className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 border border-gray-100 hover:border-blue-500"
+                        className="bg-white rounded-xl shadow-md overflow-hidden transition-all duration-300 hover:shadow-xl hover:-translate-y-2 hover:bg-yellow-200 border border-gray-100 hover:border-blue-500"
                     >
                         <div className="p-6 text-center">
                             <div className="mx-auto flex items-center justify-center w-16 h-16 rounded-full bg-blue-50 mb-4 text-blue-600 transition-all duration-300 group-hover:bg-blue-600 group-hover:text-white">
