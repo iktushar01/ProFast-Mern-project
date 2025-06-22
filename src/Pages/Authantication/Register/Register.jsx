@@ -1,6 +1,8 @@
-import React from "react";
+import React, { useContext } from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router";
+import { Link } from "react-router-dom";
+import { AuthContext } from "../../../Context/AuthContext";
+import SocialLogin from "../SocialLogin/SocialLogin";
 
 const Register = () => {
   const {
@@ -9,8 +11,17 @@ const Register = () => {
     formState: { errors },
   } = useForm();
 
+  const { createUser } = useContext(AuthContext);
+
   const onSubmit = (data) => {
     console.log(data);
+    createUser( data.email, data.password)
+      .then((result) => {
+        console.log(result.user);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -34,11 +45,7 @@ const Register = () => {
           <input
             type="email"
             {...register("email", {
-              required: "Email is required",
-              pattern: {
-                value: /^[\w-.]+@([\w-]+\.)+[\w-]{2,4}$/,
-                message: "Invalid email address",
-              },
+              required: "Email is required"
             })}
             className="input w-full"
             placeholder="Email"
@@ -70,7 +77,8 @@ const Register = () => {
           Register
         </button>
       </form>
-       {/* login Link */}
+      <SocialLogin/>
+      {/* login Link */}
       <div className="mt-4 text-center">
         <p>
           Already have an account?{" "}
@@ -79,6 +87,7 @@ const Register = () => {
           </Link>
         </p>
       </div>
+
     </div>
   );
 };
