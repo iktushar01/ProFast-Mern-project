@@ -5,7 +5,7 @@ import ProfastLogo from "../Pages/Shared/ProfastLogo/ProfastLogo";
 const AuthLayout = () => {
   return (
     <div>
-      <div className="container mx-auto">
+      <div className="max-w-7xl mx-auto">
         <ProfastLogo />
       </div>
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { NavLink } from "react-router";
+import { Link, Links, NavLink } from "react-router";
 import ProfastLogo from "../ProfastLogo/ProfastLogo";
 
 const Navbar = () => {
@@ -41,13 +41,13 @@ const Navbar = () => {
             {navItems}
           </ul>
         </div>
-        <a className="btn btn-ghost text-xl"><ProfastLogo/></a>
+        <ProfastLogo/>
       </div>
       <div className="navbar-center hidden lg:flex">
         <ul className="menu menu-horizontal px-1">{navItems}</ul>
       </div>
       <div className="navbar-end">
-        <a className="btn">Button</a>
+        <Link to='login'><button className="btn btn-success">Login</button></Link>
       </div>
     </div>
   );

@@ -1,8 +1,8 @@
 import React from "react";
 import { useForm } from "react-hook-form";
-import { Link } from "react-router-dom"; // ✅ use react-router-dom
+import { Link } from "react-router";
 
-const Login = () => {
+const Register = () => {
   const {
     register,
     handleSubmit,
@@ -17,7 +17,19 @@ const Login = () => {
     <div>
       <form onSubmit={handleSubmit(onSubmit)}>
         <fieldset className="fieldset">
-          {/* Email Field */}
+          {/* Username */}
+          <label className="label">Username</label>
+          <input
+            type="text"
+            {...register("username", { required: "Username is required" })}
+            className="input w-full"
+            placeholder="Username"
+          />
+          {errors.username && (
+            <p className="text-red-500">{errors.username.message}</p>
+          )}
+
+          {/* Email */}
           <label className="label">Email</label>
           <input
             type="email"
@@ -35,7 +47,7 @@ const Login = () => {
             <p className="text-red-500">{errors.email.message}</p>
           )}
 
-          {/* Password Field */}
+          {/* Password */}
           <label className="label">Password</label>
           <input
             type="password"
@@ -52,23 +64,18 @@ const Login = () => {
           {errors.password && (
             <p className="text-red-500">{errors.password.message}</p>
           )}
-
-          <div>
-            <a className="link link-hover">Forgot password?</a>
-          </div>
         </fieldset>
 
         <button type="submit" className="btn btn-neutral mt-4 w-full">
-          Login
+          Register
         </button>
       </form>
-
-      {/* Register Link */}
+       {/* login Link */}
       <div className="mt-4 text-center">
         <p>
-          Don't have an account?{" "}
-          <Link to="/register" className="text-blue-500 underline">
-            Register
+          Already have an account?{" "}
+          <Link to="/login" className="text-blue-500 underline">
+            Login
           </Link>
         </p>
       </div>
@@ -76,4 +83,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default Register;
